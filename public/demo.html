@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Copilot Metrics Dashboard</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f9fafb;
+            line-height: 1.6;
+        }
+        .header {
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+        .header p {
+            color: #6b7280;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        .metric-label {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        .metric-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        .metric-badge {
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.25rem 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+        .metric-description {
+            font-size: 0.875rem;
+            color: #374151;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        .metric-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .charts-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+        .charts-info h2 {
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .feature-list li {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            border-left: 4px solid #3b82f6;
+        }
+        .feature-list li strong {
+            color: #1e40af;
+        }
+        .api-info {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+        .api-info h3 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        .code-snippet {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GitHub Copilot Metrics Dashboard 🤖</h1>
+        <p>Real-time insights into your organization's GitHub Copilot usage and performance</p>
+    </div>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-label">Active Users</div>
+            <div class="metric-value">3,400</div>
+            <div class="metric-badge">↗ +15.8%</div>
+            <div class="metric-description">Strong user adoption</div>
+            <div class="metric-subtitle">Users with Copilot activity this month</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Engaged Users</div>
+            <div class="metric-value">3,200</div>
+            <div class="metric-badge">↗ +18.2%</div>
+            <div class="metric-description">Excellent engagement</div>
+            <div class="metric-subtitle">Users actively using code suggestions</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Acceptance Rate</div>
+            <div class="metric-value">85.2%</div>
+            <div class="metric-badge">↗ +3.4%</div>
+            <div class="metric-description">High quality suggestions</div>
+            <div class="metric-subtitle">Percentage of suggestions accepted</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Chat Interactions</div>
+            <div class="metric-value">2,400</div>
+            <div class="metric-badge">↗ +22.1%</div>
+            <div class="metric-description">Growing AI assistance</div>
+            <div class="metric-subtitle">Daily Copilot Chat conversations</div>
+        </div>
+    </div>
+
+    <div class="charts-info">
+        <h2>📊 Interactive Dashboard Components</h2>
+        <ul class="feature-list">
+            <li>
+                <strong>Bar Chart:</strong> Interactive Copilot suggestions chart showing accepted vs rejected suggestions over 90 days. Users can toggle between views to analyze suggestion quality trends.
+            </li>
+            <li>
+                <strong>Area Chart:</strong> Stacked area chart displaying active and engaged users trends over 6 months, showing the growth in Copilot adoption and engagement.
+            </li>
+            <li>
+                <strong>Pie Chart:</strong> Programming language distribution showing which languages developers are using Copilot with most (JavaScript, TypeScript, Python, Java, C#, Go, Rust, etc.).
+            </li>
+            <li>
+                <strong>Activity Panel:</strong> Top active users panel showing developers with highest suggestion counts and their acceptance rates for identifying power users.
+            </li>
+        </ul>
+    </div>
+
+    <div class="api-info">
+        <h3>🔗 Based on GitHub Copilot Metrics API</h3>
+        <p>This dashboard uses realistic mock data based on the official GitHub Copilot Metrics API schema. In a real implementation, this data would be fetched from:</p>
+        <div class="code-snippet">
+GET /enterprises/{enterprise}/copilot/metrics
+GET /orgs/{org}/copilot/metrics
+
+Response includes:
+- total_active_users
+- total_engaged_users  
+- copilot_ide_code_completions
+- copilot_ide_chat
+- language and editor breakdowns
+        </div>
+        <p><strong>Data includes:</strong> 90 days of historical metrics, language distribution, editor usage, and user engagement patterns. Perfect for GitHub administrators monitoring Copilot ROI and adoption.</p>
+    </div>
+</body>
+</html>
