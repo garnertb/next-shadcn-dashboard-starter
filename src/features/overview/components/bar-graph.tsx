@@ -20,109 +20,109 @@ import {
 export const description = 'An interactive bar chart';
 
 const chartData = [
-  { date: '2024-04-01', desktop: 222, mobile: 150 },
-  { date: '2024-04-02', desktop: 97, mobile: 180 },
-  { date: '2024-04-03', desktop: 167, mobile: 120 },
-  { date: '2024-04-04', desktop: 242, mobile: 260 },
-  { date: '2024-04-05', desktop: 373, mobile: 290 },
-  { date: '2024-04-06', desktop: 301, mobile: 340 },
-  { date: '2024-04-07', desktop: 245, mobile: 180 },
-  { date: '2024-04-08', desktop: 409, mobile: 320 },
-  { date: '2024-04-09', desktop: 59, mobile: 110 },
-  { date: '2024-04-10', desktop: 261, mobile: 190 },
-  { date: '2024-04-11', desktop: 327, mobile: 350 },
-  { date: '2024-04-12', desktop: 292, mobile: 210 },
-  { date: '2024-04-13', desktop: 342, mobile: 380 },
-  { date: '2024-04-14', desktop: 137, mobile: 220 },
-  { date: '2024-04-15', desktop: 120, mobile: 170 },
-  { date: '2024-04-16', desktop: 138, mobile: 190 },
-  { date: '2024-04-17', desktop: 446, mobile: 360 },
-  { date: '2024-04-18', desktop: 364, mobile: 410 },
-  { date: '2024-04-19', desktop: 243, mobile: 180 },
-  { date: '2024-04-20', desktop: 89, mobile: 150 },
-  { date: '2024-04-21', desktop: 137, mobile: 200 },
-  { date: '2024-04-22', desktop: 224, mobile: 170 },
-  { date: '2024-04-23', desktop: 138, mobile: 230 },
-  { date: '2024-04-24', desktop: 387, mobile: 290 },
-  { date: '2024-04-25', desktop: 215, mobile: 250 },
-  { date: '2024-04-26', desktop: 75, mobile: 130 },
-  { date: '2024-04-27', desktop: 383, mobile: 420 },
-  { date: '2024-04-28', desktop: 122, mobile: 180 },
-  { date: '2024-04-29', desktop: 315, mobile: 240 },
-  { date: '2024-04-30', desktop: 454, mobile: 380 },
-  { date: '2024-05-01', desktop: 165, mobile: 220 },
-  { date: '2024-05-02', desktop: 293, mobile: 310 },
-  { date: '2024-05-03', desktop: 247, mobile: 190 },
-  { date: '2024-05-04', desktop: 385, mobile: 420 },
-  { date: '2024-05-05', desktop: 481, mobile: 390 },
-  { date: '2024-05-06', desktop: 498, mobile: 520 },
-  { date: '2024-05-07', desktop: 388, mobile: 300 },
-  { date: '2024-05-08', desktop: 149, mobile: 210 },
-  { date: '2024-05-09', desktop: 227, mobile: 180 },
-  { date: '2024-05-10', desktop: 293, mobile: 330 },
-  { date: '2024-05-11', desktop: 335, mobile: 270 },
-  { date: '2024-05-12', desktop: 197, mobile: 240 },
-  { date: '2024-05-13', desktop: 197, mobile: 160 },
-  { date: '2024-05-14', desktop: 448, mobile: 490 },
-  { date: '2024-05-15', desktop: 473, mobile: 380 },
-  { date: '2024-05-16', desktop: 338, mobile: 400 },
-  { date: '2024-05-17', desktop: 499, mobile: 420 },
-  { date: '2024-05-18', desktop: 315, mobile: 350 },
-  { date: '2024-05-19', desktop: 235, mobile: 180 },
-  { date: '2024-05-20', desktop: 177, mobile: 230 },
-  { date: '2024-05-21', desktop: 82, mobile: 140 },
-  { date: '2024-05-22', desktop: 81, mobile: 120 },
-  { date: '2024-05-23', desktop: 252, mobile: 290 },
-  { date: '2024-05-24', desktop: 294, mobile: 220 },
-  { date: '2024-05-25', desktop: 201, mobile: 250 },
-  { date: '2024-05-26', desktop: 213, mobile: 170 },
-  { date: '2024-05-27', desktop: 420, mobile: 460 },
-  { date: '2024-05-28', desktop: 233, mobile: 190 },
-  { date: '2024-05-29', desktop: 78, mobile: 130 },
-  { date: '2024-05-30', desktop: 340, mobile: 280 },
-  { date: '2024-05-31', desktop: 178, mobile: 230 },
-  { date: '2024-06-01', desktop: 178, mobile: 200 },
-  { date: '2024-06-02', desktop: 470, mobile: 410 },
-  { date: '2024-06-03', desktop: 103, mobile: 160 },
-  { date: '2024-06-04', desktop: 439, mobile: 380 },
-  { date: '2024-06-05', desktop: 88, mobile: 140 },
-  { date: '2024-06-06', desktop: 294, mobile: 250 },
-  { date: '2024-06-07', desktop: 323, mobile: 370 },
-  { date: '2024-06-08', desktop: 385, mobile: 320 },
-  { date: '2024-06-09', desktop: 438, mobile: 480 },
-  { date: '2024-06-10', desktop: 155, mobile: 200 },
-  { date: '2024-06-11', desktop: 92, mobile: 150 },
-  { date: '2024-06-12', desktop: 492, mobile: 420 },
-  { date: '2024-06-13', desktop: 81, mobile: 130 },
-  { date: '2024-06-14', desktop: 426, mobile: 380 },
-  { date: '2024-06-15', desktop: 307, mobile: 350 },
-  { date: '2024-06-16', desktop: 371, mobile: 310 },
-  { date: '2024-06-17', desktop: 475, mobile: 520 },
-  { date: '2024-06-18', desktop: 107, mobile: 170 },
-  { date: '2024-06-19', desktop: 341, mobile: 290 },
-  { date: '2024-06-20', desktop: 408, mobile: 450 },
-  { date: '2024-06-21', desktop: 169, mobile: 210 },
-  { date: '2024-06-22', desktop: 317, mobile: 270 },
-  { date: '2024-06-23', desktop: 480, mobile: 530 },
-  { date: '2024-06-24', desktop: 132, mobile: 180 },
-  { date: '2024-06-25', desktop: 141, mobile: 190 },
-  { date: '2024-06-26', desktop: 434, mobile: 380 },
-  { date: '2024-06-27', desktop: 448, mobile: 490 },
-  { date: '2024-06-28', desktop: 149, mobile: 200 },
-  { date: '2024-06-29', desktop: 103, mobile: 160 },
-  { date: '2024-06-30', desktop: 446, mobile: 400 }
+  { date: '2024-04-01', suggestions: 892, acceptances: 654 },
+  { date: '2024-04-02', suggestions: 1047, acceptances: 789 },
+  { date: '2024-04-03', suggestions: 967, acceptances: 698 },
+  { date: '2024-04-04', suggestions: 1142, acceptances: 863 },
+  { date: '2024-04-05', suggestions: 1373, acceptances: 982 },
+  { date: '2024-04-06', suggestions: 901, acceptances: 645 },
+  { date: '2024-04-07', suggestions: 745, acceptances: 534 },
+  { date: '2024-04-08', suggestions: 1209, acceptances: 891 },
+  { date: '2024-04-09', suggestions: 659, acceptances: 471 },
+  { date: '2024-04-10', suggestions: 1061, acceptances: 756 },
+  { date: '2024-04-11', suggestions: 1327, acceptances: 945 },
+  { date: '2024-04-12', suggestions: 1092, acceptances: 798 },
+  { date: '2024-04-13', suggestions: 1242, acceptances: 912 },
+  { date: '2024-04-14', suggestions: 837, acceptances: 598 },
+  { date: '2024-04-15', suggestions: 720, acceptances: 521 },
+  { date: '2024-04-16', suggestions: 738, acceptances: 534 },
+  { date: '2024-04-17', suggestions: 1346, acceptances: 987 },
+  { date: '2024-04-18', suggestions: 1264, acceptances: 934 },
+  { date: '2024-04-19', suggestions: 843, acceptances: 612 },
+  { date: '2024-04-20', suggestions: 589, acceptances: 423 },
+  { date: '2024-04-21', suggestions: 737, acceptances: 532 },
+  { date: '2024-04-22', suggestions: 624, acceptances: 456 },
+  { date: '2024-04-23', suggestions: 738, acceptances: 543 },
+  { date: '2024-04-24', suggestions: 1187, acceptances: 867 },
+  { date: '2024-04-25', suggestions: 915, acceptances: 672 },
+  { date: '2024-04-26', suggestions: 475, acceptances: 341 },
+  { date: '2024-04-27', suggestions: 1183, acceptances: 874 },
+  { date: '2024-04-28', suggestions: 622, acceptances: 445 },
+  { date: '2024-04-29', suggestions: 815, acceptances: 598 },
+  { date: '2024-04-30', suggestions: 1254, acceptances: 923 },
+  { date: '2024-05-01', suggestions: 765, acceptances: 561 },
+  { date: '2024-05-02', suggestions: 1093, acceptances: 801 },
+  { date: '2024-05-03', suggestions: 847, acceptances: 623 },
+  { date: '2024-05-04', suggestions: 1285, acceptances: 942 },
+  { date: '2024-05-05', suggestions: 1381, acceptances: 1014 },
+  { date: '2024-05-06', suggestions: 1398, acceptances: 1025 },
+  { date: '2024-05-07', suggestions: 988, acceptances: 724 },
+  { date: '2024-05-08', suggestions: 649, acceptances: 476 },
+  { date: '2024-05-09', suggestions: 727, acceptances: 533 },
+  { date: '2024-05-10', suggestions: 1093, acceptances: 802 },
+  { date: '2024-05-11', suggestions: 935, acceptances: 686 },
+  { date: '2024-05-12', suggestions: 797, acceptances: 584 },
+  { date: '2024-05-13', suggestions: 697, acceptances: 511 },
+  { date: '2024-05-14', suggestions: 1348, acceptances: 989 },
+  { date: '2024-05-15', suggestions: 1273, acceptances: 934 },
+  { date: '2024-05-16', suggestions: 1138, acceptances: 835 },
+  { date: '2024-05-17', suggestions: 1399, acceptances: 1026 },
+  { date: '2024-05-18', suggestions: 1015, acceptances: 744 },
+  { date: '2024-05-19', suggestions: 735, acceptances: 539 },
+  { date: '2024-05-20', suggestions: 677, acceptances: 497 },
+  { date: '2024-05-21', suggestions: 482, acceptances: 354 },
+  { date: '2024-05-22', suggestions: 481, acceptances: 353 },
+  { date: '2024-05-23', suggestions: 852, acceptances: 625 },
+  { date: '2024-05-24', suggestions: 894, acceptances: 656 },
+  { date: '2024-05-25', suggestions: 701, acceptances: 514 },
+  { date: '2024-05-26', suggestions: 613, acceptances: 450 },
+  { date: '2024-05-27', suggestions: 1220, acceptances: 896 },
+  { date: '2024-05-28', suggestions: 733, acceptances: 538 },
+  { date: '2024-05-29', suggestions: 478, acceptances: 351 },
+  { date: '2024-05-30', suggestions: 940, acceptances: 690 },
+  { date: '2024-05-31', suggestions: 678, acceptances: 498 },
+  { date: '2024-06-01', suggestions: 678, acceptances: 498 },
+  { date: '2024-06-02', suggestions: 1270, acceptances: 932 },
+  { date: '2024-06-03', suggestions: 503, acceptances: 369 },
+  { date: '2024-06-04', suggestions: 1239, acceptances: 909 },
+  { date: '2024-06-05', suggestions: 488, acceptances: 358 },
+  { date: '2024-06-06', suggestions: 894, acceptances: 656 },
+  { date: '2024-06-07', suggestions: 923, acceptances: 677 },
+  { date: '2024-06-08', suggestions: 1085, acceptances: 796 },
+  { date: '2024-06-09', suggestions: 1238, acceptances: 908 },
+  { date: '2024-06-10', suggestions: 655, acceptances: 481 },
+  { date: '2024-06-11', suggestions: 492, acceptances: 361 },
+  { date: '2024-06-12', suggestions: 1292, acceptances: 948 },
+  { date: '2024-06-13', suggestions: 481, acceptances: 353 },
+  { date: '2024-06-14', suggestions: 1226, acceptances: 900 },
+  { date: '2024-06-15', suggestions: 1007, acceptances: 739 },
+  { date: '2024-06-16', suggestions: 971, acceptances: 713 },
+  { date: '2024-06-17', suggestions: 1375, acceptances: 1009 },
+  { date: '2024-06-18', suggestions: 507, acceptances: 372 },
+  { date: '2024-06-19', suggestions: 941, acceptances: 691 },
+  { date: '2024-06-20', suggestions: 1208, acceptances: 887 },
+  { date: '2024-06-21', suggestions: 669, acceptances: 491 },
+  { date: '2024-06-22', suggestions: 917, acceptances: 673 },
+  { date: '2024-06-23', suggestions: 1380, acceptances: 1013 },
+  { date: '2024-06-24', suggestions: 632, acceptances: 464 },
+  { date: '2024-06-25', suggestions: 641, acceptances: 470 },
+  { date: '2024-06-26', suggestions: 1234, acceptances: 906 },
+  { date: '2024-06-27', suggestions: 1348, acceptances: 989 },
+  { date: '2024-06-28', suggestions: 649, acceptances: 476 },
+  { date: '2024-06-29', suggestions: 503, acceptances: 369 },
+  { date: '2024-06-30', suggestions: 1246, acceptances: 914 }
 ];
 
 const chartConfig = {
   views: {
-    label: 'Page Views'
+    label: 'Copilot Usage'
   },
-  desktop: {
-    label: 'Desktop',
+  suggestions: {
+    label: 'Suggestions',
     color: 'var(--primary)'
   },
-  mobile: {
-    label: 'Mobile',
+  acceptances: {
+    label: 'Acceptances',
     color: 'var(--primary)'
   },
   error: {
@@ -133,12 +133,12 @@ const chartConfig = {
 
 export function BarGraph() {
   const [activeChart, setActiveChart] =
-    React.useState<keyof typeof chartConfig>('desktop');
+    React.useState<keyof typeof chartConfig>('suggestions');
 
   const total = React.useMemo(
     () => ({
-      desktop: chartData.reduce((acc, curr) => acc + curr.desktop, 0),
-      mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0)
+      suggestions: chartData.reduce((acc, curr) => acc + curr.suggestions, 0),
+      acceptances: chartData.reduce((acc, curr) => acc + curr.acceptances, 0)
     }),
     []
   );
@@ -163,16 +163,16 @@ export function BarGraph() {
     <Card className='@container/card !pt-3'>
       <CardHeader className='flex flex-col items-stretch space-y-0 border-b !p-0 sm:flex-row'>
         <div className='flex flex-1 flex-col justify-center gap-1 px-6 !py-0'>
-          <CardTitle>Bar Chart - Interactive</CardTitle>
+          <CardTitle>Copilot Daily Usage Trends</CardTitle>
           <CardDescription>
             <span className='hidden @[540px]/card:block'>
-              Total for the last 3 months
+              Suggestions and acceptances for the last 3 months
             </span>
             <span className='@[540px]/card:hidden'>Last 3 months</span>
           </CardDescription>
         </div>
         <div className='flex'>
-          {['desktop', 'mobile', 'error'].map((key) => {
+          {['suggestions', 'acceptances', 'error'].map((key) => {
             const chart = key as keyof typeof chartConfig;
             if (!chart || total[key as keyof typeof total] === 0) return null;
             return (
@@ -239,7 +239,7 @@ export function BarGraph() {
               content={
                 <ChartTooltipContent
                   className='w-[150px]'
-                  nameKey='views'
+                  nameKey='usage'
                   labelFormatter={(value) => {
                     return new Date(value).toLocaleDateString('en-US', {
                       month: 'short',
