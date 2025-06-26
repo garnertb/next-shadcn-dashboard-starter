@@ -4,6 +4,13 @@ import { NextRequest } from 'next/server';
 const isProtectedRoute = createRouteMatcher(['/dashboard(.*)']);
 
 export default clerkMiddleware(async (auth, req: NextRequest) => {
+  // Skip authentication for test and demo routes
+  if (
+    req.nextUrl.pathname.startsWith('/test-dashboard') ||
+    req.nextUrl.pathname.startsWith('/copilot-demo')
+  ) {
+    return;
+  }
   if (isProtectedRoute(req)) await auth.protect();
 });
 export const config = {
