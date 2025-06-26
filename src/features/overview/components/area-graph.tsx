@@ -17,27 +17,30 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from '@/components/ui/chart';
+import { mockCopilotUsageMetrics } from '@/constants/copilot-metrics';
 
-const chartData = [
-  { month: 'January', desktop: 186, mobile: 80 },
-  { month: 'February', desktop: 305, mobile: 200 },
-  { month: 'March', desktop: 237, mobile: 120 },
-  { month: 'April', desktop: 73, mobile: 190 },
-  { month: 'May', desktop: 209, mobile: 130 },
-  { month: 'June', desktop: 214, mobile: 140 }
-];
+// Calculate acceptance rate for each day and group by week for better visualization
+const chartData = mockCopilotUsageMetrics
+  .filter((_, index) => index % 7 === 0) // Take every 7th day for weekly data
+  .map((metric, index) => {
+    const acceptance_rate =
+      (metric.total_acceptances_count / metric.total_suggestions_count) * 100;
+    const active_users = metric.total_active_users;
+    return {
+      week: `Week ${index + 1}`,
+      acceptance_rate: parseFloat(acceptance_rate.toFixed(1)),
+      active_users: active_users
+    };
+  });
 
 const chartConfig = {
-  visitors: {
-    label: 'Visitors'
-  },
-  desktop: {
-    label: 'Desktop',
+  acceptance_rate: {
+    label: 'Acceptance Rate (%)',
     color: 'var(--primary)'
   },
-  mobile: {
-    label: 'Mobile',
-    color: 'var(--primary)'
+  active_users: {
+    label: 'Active Users',
+    color: 'hsl(var(--chart-2))'
   }
 } satisfies ChartConfig;
 
@@ -45,9 +48,9 @@ export function AreaGraph() {
   return (
     <Card className='@container/card'>
       <CardHeader>
-        <CardTitle>Area Chart - Stacked</CardTitle>
+        <CardTitle>Acceptance Rate & User Activity Trends</CardTitle>
         <CardDescription>
-          Showing total visitors for the last 6 months
+          Weekly acceptance rates and active user count over time
         </CardDescription>
       </CardHeader>
       <CardContent className='px-2 pt-4 sm:px-6 sm:pt-6'>
@@ -63,56 +66,54 @@ export function AreaGraph() {
             }}
           >
             <defs>
-              <linearGradient id='fillDesktop' x1='0' y1='0' x2='0' y2='1'>
+              <linearGradient
+                id='fillAcceptanceRate'
+                x1='0'
+                y1='0'
+                x2='0'
+                y2='1'
+              >
                 <stop
                   offset='5%'
-                  stopColor='var(--color-desktop)'
-                  stopOpacity={1.0}
-                />
-                <stop
-                  offset='95%'
-                  stopColor='var(--color-desktop)'
-                  stopOpacity={0.1}
-                />
-              </linearGradient>
-              <linearGradient id='fillMobile' x1='0' y1='0' x2='0' y2='1'>
-                <stop
-                  offset='5%'
-                  stopColor='var(--color-mobile)'
+                  stopColor='var(--primary)'
                   stopOpacity={0.8}
                 />
                 <stop
                   offset='95%'
-                  stopColor='var(--color-mobile)'
+                  stopColor='var(--primary)'
+                  stopOpacity={0.1}
+                />
+              </linearGradient>
+              <linearGradient id='fillActiveUsers' x1='0' y1='0' x2='0' y2='1'>
+                <stop
+                  offset='5%'
+                  stopColor='hsl(var(--chart-2))'
+                  stopOpacity={0.8}
+                />
+                <stop
+                  offset='95%'
+                  stopColor='hsl(var(--chart-2))'
                   stopOpacity={0.1}
                 />
               </linearGradient>
             </defs>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey='month'
+              dataKey='week'
               tickLine={false}
               axisLine={false}
               tickMargin={8}
               minTickGap={32}
-              tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator='dot' />}
             />
             <Area
-              dataKey='mobile'
+              dataKey='acceptance_rate'
               type='natural'
-              fill='url(#fillMobile)'
-              stroke='var(--color-mobile)'
-              stackId='a'
-            />
-            <Area
-              dataKey='desktop'
-              type='natural'
-              fill='url(#fillDesktop)'
-              stroke='var(--color-desktop)'
+              fill='url(#fillAcceptanceRate)'
+              stroke='var(--primary)'
               stackId='a'
             />
           </AreaChart>
@@ -122,11 +123,11 @@ export function AreaGraph() {
         <div className='flex w-full items-start gap-2 text-sm'>
           <div className='grid gap-2'>
             <div className='flex items-center gap-2 leading-none font-medium'>
-              Trending up by 5.2% this month{' '}
+              Acceptance rate trending up by 2.1% this month{' '}
               <IconTrendingUp className='h-4 w-4' />
             </div>
             <div className='text-muted-foreground flex items-center gap-2 leading-none'>
-              January - June 2024
+              January 2024 - Current
             </div>
           </div>
         </div>
