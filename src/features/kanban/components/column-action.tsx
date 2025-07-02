@@ -23,19 +23,24 @@ import { useTaskStore } from '../utils/store';
 import { UniqueIdentifier } from '@dnd-kit/core';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
+import { ColorPicker } from './color-picker';
 
 export function ColumnActions({
   title,
-  id
+  id,
+  color
 }: {
   title: string;
   id: UniqueIdentifier;
+  color?: string;
 }) {
   const [name, setName] = React.useState(title);
+  const [currentColor, setCurrentColor] = React.useState(color || '#64748b');
   const updateCol = useTaskStore((state) => state.updateCol);
   const removeCol = useTaskStore((state) => state.removeCol);
   const [editDisable, setIsEditDisable] = React.useState(true);
   const [showDeleteDialog, setShowDeleteDialog] = React.useState(false);
+  const [showColorPicker, setShowColorPicker] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   return (
@@ -44,17 +49,35 @@ export function ColumnActions({
         onSubmit={(e) => {
           e.preventDefault();
           setIsEditDisable(!editDisable);
-          updateCol(id, name);
+          setShowColorPicker(false);
+          updateCol(id, name, currentColor);
           toast(`${title} updated to ${name}`);
         }}
       >
-        <Input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className='mt-0! mr-auto text-base disabled:cursor-pointer disabled:border-none disabled:opacity-100'
-          disabled={editDisable}
-          ref={inputRef}
-        />
+        <div className="flex items-center">
+          <Input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className='mt-0! mr-auto text-base disabled:cursor-pointer disabled:border-none disabled:opacity-100'
+            disabled={editDisable}
+            ref={inputRef}
+          />
+          {!editDisable && (
+            <div 
+              className="w-5 h-5 ml-2 rounded-full cursor-pointer"
+              style={{ backgroundColor: currentColor }}
+              onClick={() => setShowColorPicker(!showColorPicker)}
+            />
+          )}
+        </div>
+        {showColorPicker && !editDisable && (
+          <div className="absolute z-50 mt-2 p-2 bg-background rounded-md shadow-lg border">
+            <ColorPicker 
+              selectedColor={currentColor}
+              onColorChange={setCurrentColor}
+            />
+          </div>
+        )}
       </form>
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
@@ -73,6 +96,14 @@ export function ColumnActions({
             }}
           >
             Rename
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onSelect={() => {
+              setIsEditDisable(false);
+              setShowColorPicker(true);
+            }}
+          >
+            Change Color
           </DropdownMenuItem>
           <DropdownMenuSeparator />
 

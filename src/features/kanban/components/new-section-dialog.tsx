@@ -10,11 +10,13 @@ import {
   DialogTrigger
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-
+import { useState } from 'react';
 import { useTaskStore } from '../utils/store';
+import { ColorPicker } from './color-picker';
 
 export default function NewSectionDialog() {
   const addCol = useTaskStore((state) => state.addCol);
+  const [selectedColor, setSelectedColor] = useState('#2563eb'); // Default blue color
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,7 +26,7 @@ export default function NewSectionDialog() {
     const { title } = Object.fromEntries(formData);
 
     if (typeof title !== 'string') return;
-    addCol(title);
+    addCol(title, selectedColor);
   };
 
   return (
@@ -52,6 +54,13 @@ export default function NewSectionDialog() {
               name='title'
               placeholder='Section title...'
               className='col-span-4'
+            />
+          </div>
+          <div>
+            <label className="text-sm font-medium mb-2 block">Section Color</label>
+            <ColorPicker 
+              selectedColor={selectedColor}
+              onColorChange={setSelectedColor}
             />
           </div>
         </form>

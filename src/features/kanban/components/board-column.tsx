@@ -14,6 +14,7 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 export interface Column {
   id: UniqueIdentifier;
   title: string;
+  color?: string;
 }
 
 export type ColumnType = 'Column';
@@ -70,15 +71,28 @@ export function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
     }
   );
 
+  const columnColor = column.color || '#64748b'; // Default slate color if none provided
+
   return (
     <Card
       ref={setNodeRef}
-      style={style}
+      style={{
+        ...style,
+        borderTop: '4px solid',
+        borderColor: columnColor
+      }}
       className={variants({
         dragging: isOverlay ? 'overlay' : isDragging ? 'over' : undefined
       })}
     >
-      <CardHeader className='space-between flex flex-row items-center border-b-2 p-4 text-left font-semibold'>
+      <CardHeader 
+        className='space-between flex flex-row items-center p-4 text-left font-semibold'
+        style={{ 
+          borderBottom: '2px solid',
+          borderColor: columnColor,
+          position: 'relative'
+        }}
+      >
         <Button
           variant={'ghost'}
           {...attributes}
@@ -88,12 +102,11 @@ export function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
           <span className='sr-only'>{`Move column: ${column.title}`}</span>
           <IconGripVertical />
         </Button>
-        {/* <span className="mr-auto mt-0!"> {column.title}</span> */}
-        {/* <Input
-          defaultValue={column.title}
-          className="text-base mt-0! mr-auto"
-        /> */}
-        <ColumnActions id={column.id} title={column.title} />
+        <ColumnActions 
+          id={column.id} 
+          title={column.title}
+          color={column.color} 
+        />
       </CardHeader>
       <CardContent className='flex grow flex-col gap-4 overflow-x-hidden p-2'>
         <ScrollArea className='h-full'>
